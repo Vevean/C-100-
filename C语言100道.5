@@ -1,0 +1,25 @@
+//5.题目：输入三个整数x,y,z，请把这三个数由小到大输出
+#include<stdio.h>
+int main()
+{
+	int i,j,a[3],t;
+	scanf("%d %d %d",&a[0],&a[1],&a[2]);
+	for(i=0;i<3-1;i++)
+	{
+		for(j=i+1;j<3;j++)
+		{
+			if(a[i]>a[j])
+			{
+			t=a[i];
+			a[i]=a[j];
+			a[j]=t;	
+			}
+		}
+	}
+	for(i=0;i<3;i++)
+	{
+		printf("%d ",a[i]);
+	}
+	
+}
+
