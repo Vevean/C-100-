@@ -1,0 +1,29 @@
+//68.题目：反向输出一个链表。(考查头插法)
+#include<stdio.h>
+#include<stdlib.h>
+struct Node{
+	int a;
+	struct Node *next;
+};
+struct Node *readlist()
+{
+	int num;
+	struct Node *head=NULL;
+	while(scanf("%d",&num)&&num!=-1)
+	{
+		struct Node *p=(struct Node*)malloc(sizeof(struct Node));
+		p->a=num;
+		p->next=head;
+		head=p;
+	}
+	return head;
+}
+int main()
+{
+	struct Node *p, *head = NULL;
+	head = readlist();
+    for ( p = head; p != NULL; p = p->next )
+        printf("%d ", p->a);
+    printf("\n");
+    return 0;
+}
