@@ -1,4 +1,4 @@
-//67.ÌâÄ¿£º´´½¨Ò»¸öÁ´±í¡£
+//67.é¢˜ç›®ï¼šåˆ›å»ºä¸€ä¸ªé“¾è¡¨ã€‚
 #include<stdio.h>
 #include<stdlib.h>
 struct Node{
