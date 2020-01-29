@@ -1,0 +1,24 @@
+//14.题目：判断101-200之间有多少个素数，并输出所有素数。
+#include<stdio.h>
+int main()
+{
+	int i,j,count=0,flag=0;
+	for(i=101;i<=200;i++)
+	{
+		flag=0;
+		for(j=2;j<i;j++)
+		{
+			if(i%j==0)
+			{
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0)
+		{
+			count++;
+			printf("%d ",i);
+		}
+	}
+	printf("一共有%d个素数",count);
+}
