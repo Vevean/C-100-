@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main()
+{    
+	int n,i,k; 
+   	scanf("%d",&n);  
+	printf("%d=",n);
+	i = 2;    
+	if(n < i)        
+	printf("%d\n",n);    
+	do    
+	{        
+	if(n%i == 0)        
+	{            
+	if(n == i)                
+	printf("%d\n",i);           
+	 else                
+	 printf("%d*",i);            
+	 n = n/i;        
+	 }        
+	 else            
+	 i++;           
+	  } 
+	  while(n/i != 0);    
+	  return 0;
+}
