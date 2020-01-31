@@ -1,0 +1,18 @@
+//12.题目：给定一个整数，写一个函数来判断它是否是 3?的幂次方。
+#include<stdio.h>
+int main()
+{
+	int num,count=0,a=num;
+	scanf("%d",&num);
+	if(num%3==0)
+	{
+		while(num/3!=0)
+		{
+			num/=3;
+			count++;
+		}
+		printf("%d是3的%d次幂",a,count);
+	}else{
+		printf("%d不是3的幂次方",num);
+	}
+}
