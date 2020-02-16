@@ -1,0 +1,44 @@
+struct tmpnums
+{
+    int data;
+    int add;
+};
+
+void swap(int *a,int *b)
+{
+    int t;
+    t=*a;
+    *a=*b;
+    *b=t;
+}
+
+void rotate(int* nums, int numsSize, int k){
+   
+    struct tmpnums t;
+    t.data=0;
+    t.add=0;
+    int i=0;
+    int cnt=0;
+  
+    int g=0;
+    k=k%numsSize;
+    if(k!=0){
+	
+
+    for(i=0;cnt<numsSize;i++){
+    	    t.add=i;
+     		swap(&t.data,&nums[t.add]);  
+			  	
+    	do{
+
+            swap(&t.data,&nums[(k+t.add)%numsSize]);
+            t.add=(k+t.add)%numsSize;
+            cnt++; 		
+		}while(t.add!=i);
+		
+	}
+	
+	
+		}
+		
+	}
