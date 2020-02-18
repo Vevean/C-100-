@@ -1,0 +1,16 @@
+定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
+struct ListNode* reverseList(struct ListNode* head){
+        if(head==NULL)
+        {
+            return NULL;
+        }
+        struct ListNode* newhead=NULL;
+        struct ListNode* temp;
+        while(head){
+            temp=head->next;
+            head->next=newhead;
+            newhead=head;
+            head=temp;
+        }
+        return newhead;
+}
