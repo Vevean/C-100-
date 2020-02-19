@@ -1,0 +1,38 @@
+
+ 1 #include<stdio.h>
+
+ 2 int main(int agrc, char*agrv[])
+
+ 3 {
+
+ 4     long sum = 4, s = 4;//sum的初始值为4表示，只有一位数字组成的奇数个数为4个
+
+ 5     int j;
+
+ 6     for (j = 2; j <= 8; j++)
+
+ 7     {    
+
+ 8         printf("%d位数为奇数的个数%ld\n", j-1, s);
+
+ 9         if (j <= 2)
+
+10             s *= 7;
+
+11         else
+
+12             s *= 8;
+
+13         sum += s;    
+
+14     }
+
+15     printf("%d位数为奇数的个数%ld\n", j-1, s);
+
+16     printf("奇数的总个数为：%ld\n", sum);
+
+17     system("pause");
+
+18     return 0;
+
+19 }
