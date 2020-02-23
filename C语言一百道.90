@@ -1,0 +1,94 @@
+：求一个字符串的所有排列。
+#include <stdlib.h>
+
+#include <stdio.h>
+
+ 
+
+void swap(char *left, char *right){
+
+	char tmp = *left;
+
+	*left = *right;
+
+	*right = tmp;
+
+ 
+
+}
+
+void permutation(char *str, char *begin){
+
+	char *swapPos = NULL;
+
+	if(str == NULL || begin == NULL) return;
+
+	if((*begin) == '\0'){
+
+		printf("%s\n", str);
+
+		return;
+
+	}
+
+	for(swapPos = begin; (*swapPos) != '\0'; ++swapPos){
+
+		swap(begin, swapPos);
+
+		permutation(str, begin + 1);
+
+		swap(begin, swapPos);
+
+	}
+
+}
+
+ 
+
+int main(){
+
+	char *cases[] = {"abc", "12", "A", "6789"};
+
+	char **str;
+
+	int strIndex = 0;
+
+	int letterIndex = 0;
+
+	int casesNum = sizeof(cases) / sizeof(char*);
+
+	str = (char**)malloc(sizeof(cases));
+
+	for(strIndex = 0; strIndex < casesNum; ++strIndex){
+
+		str[strIndex] = (char*)malloc(1 + strlen(cases[strIndex]));
+
+		for (letterIndex = 0; letterIndex < strlen(cases[strIndex]); ++letterIndex)
+
+		{
+
+			str[strIndex][letterIndex] = cases[strIndex][letterIndex];
+
+		}
+
+		str[strIndex][letterIndex] = '\0';
+
+	}
+
+	for(strIndex = 0; strIndex < casesNum; ++strIndex){
+
+		printf("%s:\n", str[strIndex]);
+
+		permutation(str[strIndex], str[strIndex]);
+
+	}
+
+	for(strIndex = 0; strIndex < casesNum; ++strIndex){
+
+		free(str[strIndex]);
+
+	}
+
+	free(str);
+
+}
