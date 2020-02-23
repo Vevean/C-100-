@@ -1,0 +1,27 @@
+给定一个包含 0, 1, 2, ..., n 中 n 个数的序列，找出 0 .. n 中没有出现在序列中的那个数。
+
+示例 1:
+
+输入: [3,0,1]
+输出: 2
+
+
+int missingNumber(int* nums, int numsSize){
+    int i,j,min,min_index;
+    for(i=0;i<numsSize;i++){
+        min=nums[i];
+        min_index=i;
+        for(j=i;j<numsSize;j++){
+            if(nums[j]<min){
+                min=nums[j];
+                min_index=j;
+            }
+        }
+        j=nums[i];
+        nums[i]=min;
+        nums[min_index]=j;
+    }
+    for(i=0;i<numsSize;i++)
+        if(nums[i]!=i) return i;
+    return numsSize;
+}
