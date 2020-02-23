@@ -1,0 +1,58 @@
+某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，加密规则如下：每位数字都加上5,然后用和除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换。
+#include &lt;stdio.h&gt;
+
+int code(int in);//加密
+int decode(int in);//解密
+int main ()
+{
+int in;
+scanf("%d",&amp;in);
+int result = code(in);
+printf("加密:%d\n",result);
+printf("解密:%d\n",decode(result));
+
+return 0;
+}
+int code(int in)
+{
+int result;
+int m[4];
+int n,i;
+for (i=0;i&lt;4;i++)
+{
+m[i] = in%10;
+m[i] += 5;
+m[i] %= 10;
+in /= 10;
+}
+n = m[0];
+m[0] = m[3];
+m[3] = n;
+n = m[1];
+m[1] = m[2];
+m[2] = n;
+
+result = m[0]+m[1]*10+m[2]*100+m[3]*1000;
+return result;
+}
+int decode(int in)
+{
+int result;
+int m[4];
+int n,i;
+for (i=0;i&lt;4;i++)
+{
+m[i] = in%10;
+m[i] = (m[i]&gt;=5 ? m[i]-5:m[i]+5);
+in /= 10;
+}
+n = m[0];
+m[0] = m[3];
+m[3] = n;
+n = m[1];
+m[1] = m[2];
+m[2] = n;
+
+result = m[0]+m[1]*10+m[2]*100+m[3]*1000;
+return result;
+}
